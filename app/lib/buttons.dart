@@ -56,7 +56,7 @@ class Button extends StatelessWidget {
       ),
       padding: EdgeInsets.only(
         left: body1.fontSize * 1.4,
-        top: body1.fontSize * 0.58,
+        top: body1.fontSize * 0.35,
         right: body1.fontSize * 1.4,
         bottom: body1.fontSize * 0.45,
       ),

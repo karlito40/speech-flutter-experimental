@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  flutter_svg: ^0.14.1
   flutter:
     sdk: flutter
 
@@ -41,7 +42,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
+  assets:
+    - assets/icons/fb.svg
+    - assets/icons/google.svg
+    - assets/icons/twitter.svg
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -64,6 +68,16 @@ flutter:
         - asset: assets/fonts/Crimson_Text/CrimsonText-Bold.ttf
           weight: 700
         - asset: assets/fonts/Crimson_Text/CrimsonText-BoldItalic.ttf
+          style: italic
+          weight: 700
+    - family: PT
+      fonts:
+        - asset: assets/fonts/PT_Serif/PTSerif-Regular.ttf
+        - asset: assets/fonts/PT_Serif/PTSerif-ITalic.ttf
+          style: italic
+        - asset: assets/fonts/PT_Serif/PTSerif-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/PT_Serif/PTSerif-BoldItalic.ttf
           style: italic
           weight: 700
     - family: Cormorant

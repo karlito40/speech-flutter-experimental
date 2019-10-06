@@ -41,19 +41,37 @@ const Color dangerColor = Color(0xFFBE2828);
 
 final ThemeData appTheme = ThemeData(
   primarySwatch: primarySwatch,
-  fontFamily: 'Crimson',
+  fontFamily: 'PT',
   // see https://vuetifyjs.com/en/styles/typography#font-sizes
   textTheme: TextTheme(
     display2: TextStyle(
-      height: 1.15,
+      height: 1.35,
       fontFamily: 'Cormorant',
       fontSize: 50,
       fontWeight: FontWeight.normal,
       color: primaryColor
     ),
     display1: TextStyle(fontSize: 38, fontWeight: FontWeight.bold, color: primaryColor),
-    body1: TextStyle(fontSize: 20, color: primaryColor),
+    body1: TextStyle(fontSize: 18, color: primaryColor),
   )
 );
 
+
+// Crimson
+//final ThemeData appTheme = ThemeData(
+//  primarySwatch: primarySwatch,
+//  fontFamily: 'Crimson',
+//  // see https://vuetifyjs.com/en/styles/typography#font-sizes
+//  textTheme: TextTheme(
+//    display2: TextStyle(
+//      height: 1.35,
+//      fontFamily: 'Cormorant',
+//      fontSize: 50,
+//      fontWeight: FontWeight.normal,
+//      color: primaryColor
+//    ),
+//    display1: TextStyle(fontSize: 38, fontWeight: FontWeight.bold, color: primaryColor),
+//    body1: TextStyle(fontSize: 20, color: primaryColor),
+//  )
+//);
 
