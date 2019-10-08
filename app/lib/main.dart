@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:app/theme.dart';
-//import 'pages/ds_page.dart';
-import 'pages/install_page.dart';
+import 'router.dart' as router;
 
 void main() => runApp(MyApp());
 
@@ -17,10 +16,13 @@ class MyApp extends StatelessWidget {
       )
     );
 
+    final bool freshInstall = true;
+
     return MaterialApp(
       title: 'Speech',
       theme: appTheme,
-      home: Scaffold(body: InstallPage())
+      initialRoute: '/',
+      onGenerateRoute: router.generateRoute
     );
   }
 }
