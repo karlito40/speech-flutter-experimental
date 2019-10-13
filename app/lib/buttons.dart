@@ -4,53 +4,53 @@ import 'package:app/theme.dart';
 enum ButtonType {
   submit,
   light,
-  danger
+  danger,
+  link
 }
 
-class ButtonColor {
-  final Color text;
+class ButtonStyle {
+  final TextStyle text;
+  final BoxDecoration decoration;
   final Color background;
   final Color splash;
 
-  const ButtonColor({ this.text, this.background, this.splash });
+  const ButtonStyle({ this.text, this.background, this.splash, this.decoration });
 }
+
+Map<ButtonType, ButtonStyle> buttonStyles = {
+  ButtonType.submit: ButtonStyle(
+    background: primaryColor,
+    splash: primarySwatch[200],
+    text: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+  ),
+  ButtonType.light: ButtonStyle(
+    background: secondaryColor.withOpacity(0.05),
+    splash: secondaryColor.withOpacity(0.3),
+    text: const TextStyle(color: secondaryColor, fontWeight: FontWeight.w600),
+  ),
+  ButtonType.danger: ButtonStyle(
+    background: dangerColor.withOpacity(0.05),
+    splash: dangerColor.withOpacity(0.3),
+    text: const TextStyle(color: dangerColor),
+  )
+};
 
 class Button extends StatelessWidget {
   final String text;
   final ButtonType type;
-
-  static Map<ButtonType, ButtonColor> _colors = {
-    ButtonType.submit: ButtonColor(
-      background: primaryColor,
-      text: Colors.white,
-      splash: primarySwatch[200],
-    ),
-    ButtonType.light: ButtonColor(
-      background: secondaryColor.withOpacity(0.05),
-      text: secondaryColor,
-      // splash: Color(0xFFCBB5BC),
-      splash: secondaryColor.withOpacity(0.3),
-    ),
-    ButtonType.danger: ButtonColor(
-      background: dangerColor.withOpacity(0.05),
-      text: dangerColor,
-      splash: dangerColor.withOpacity(0.3),
-    )
-  };
-
   const Button({
     Key key,
     this.text,
-    this.type = ButtonType.submit,
+    this.type = ButtonType.submit
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    ButtonColor color = _colors[type];
+    ButtonStyle buttonStyle = buttonStyles[type];
     TextStyle body1 = Theme.of(context).textTheme.body1;
 
     return FlatButton(
-      color: color.background,
+      color: buttonStyle.background,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadiusDirectional.circular(30)
       ),
@@ -60,11 +60,14 @@ class Button extends StatelessWidget {
         right: body1.fontSize * 1.4,
         bottom: body1.fontSize * 0.45,
       ),
-      splashColor: color.splash,
+      splashColor: buttonStyle.splash,
       onPressed: () {
         print("button pressed {text}");
       },
-      child: Text(text, style: body1.copyWith(color: color.text, fontWeight: FontWeight.w600)),
+      child: Container(
+        child: Text(text, style: body1.merge(buttonStyle.text)),
+        decoration: buttonStyle.decoration
+      )
     );
   }
 }

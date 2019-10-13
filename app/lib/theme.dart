@@ -58,7 +58,7 @@ final ThemeData appTheme = ThemeData(
       color: primaryColor
     ),
     display1: TextStyle(fontSize: 38, fontWeight: FontWeight.bold, color: primaryColor),
-    body1: TextStyle(fontSize: 18, color: primaryColor),
+    body1: TextStyle(fontSize: 18, color: primaryColor)
   )
 );
 
@@ -90,4 +90,3 @@ void setNotificationBar(THEME theme) {
     )
   );
 }
-
