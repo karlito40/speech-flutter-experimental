@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+enum THEME {
+  light,
+  dark
+}
 
 // http://mcg.mbitson.com/#!?mcgpalette0=%23232323&mcgpalette1=%234a2632&themename=mcgtheme
 const int _primaryColorValue = 0xFF232323;
@@ -56,7 +62,6 @@ final ThemeData appTheme = ThemeData(
   )
 );
 
-
 // Crimson
 //final ThemeData appTheme = ThemeData(
 //  primarySwatch: primarySwatch,
@@ -74,4 +79,15 @@ final ThemeData appTheme = ThemeData(
 //    body1: TextStyle(fontSize: 20, color: primaryColor),
 //  )
 //);
+
+void setNotificationBar(THEME theme) {
+  final fontBrightness = (theme == THEME.light) ? Brightness.light : Brightness.dark;
+
+  SystemChrome.setSystemUIOverlayStyle(
+    SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: fontBrightness
+    )
+  );
+}
 

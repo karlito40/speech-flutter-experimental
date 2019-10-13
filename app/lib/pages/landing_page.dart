@@ -1,6 +1,5 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:app/theme.dart';
 import 'package:app/buttons.dart';
@@ -9,12 +8,7 @@ import 'package:app/routes.dart';
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-      SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.light
-      )
-    );
+    setNotificationBar(THEME.light);
 
     final double maxHeaderWidth = min(300, 2 * (MediaQuery.of(context).size.width / 3));
     final Widget fbIcon = SvgPicture.asset('assets/icons/fb.svg', width: 38, height: 38);
@@ -72,7 +66,9 @@ class LandingPage extends StatelessWidget {
                     child: IconButton(
                       padding: EdgeInsets.all(0),
                       icon: googleIcon,
-                      onPressed: () => Navigator.pushNamed(context, SIGN_UP)
+                      onPressed: () {
+                        Navigator.pushNamed(context, SIGN_UP);
+                      }
                     ),
                   ),
                   Container(
