@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:app/buttons.dart';
+import 'package:app/common/buttons.dart';
 
 class DSPage extends StatelessWidget {
   @override

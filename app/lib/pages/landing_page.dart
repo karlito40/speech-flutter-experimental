@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:app/theme.dart';
-import 'package:app/buttons.dart';
+import 'package:app/common/buttons.dart';
 import 'package:app/routes.dart';
 
 class LandingPage extends StatelessWidget {
